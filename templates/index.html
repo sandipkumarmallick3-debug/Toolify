@@ -1,1 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolify | Premium Welding & Iron Tools</title>
+    <meta name="description" content="Shop premium welding machines, power tools, cutting equipment and safety gear. Professional quality delivered across India.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans antialiased">
 
+    <!-- ═══ Navigation ═══ -->
+    <nav id="navbar" class="bg-dark-800/90 backdrop-blur-xl border-b border-white/5 text-white sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2.5 cursor-pointer group" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-shadow">
+                        <i class="fa-solid fa-hammer text-dark-900 text-sm"></i>
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight">Toolify</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:block flex-1 max-w-md mx-8">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search for drill, welder, grinder..." 
+                               class="w-full bg-white/5 text-white rounded-xl py-2.5 px-4 pl-11 border border-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 transition-all placeholder-gray-500">
+                        <i class="fa-solid fa-search absolute left-4 top-3.5 text-gray-500"></i>
+                    </div>
+                </div>
+
+                <!-- Nav Items -->
+                <div class="flex items-center gap-5">
+                    <a href="../admin/login.php" class="hidden sm:flex items-center gap-2 text-sm text-gray-400 hover:text-amber-400 transition-colors">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Admin</span>
+                    </a>
+                    <button class="hover:text-amber-400 transition-colors relative p-1" onclick="toggleCart()" id="cartBtn">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-dark-900 text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center transform scale-0 transition-transform duration-300 shadow-lg shadow-amber-500/30">0</span>
+                    </button>
+                    <button class="md:hidden text-xl p-1" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Search -->
+        <div id="mobileMenu" class="hidden md:hidden bg-dark-800 border-t border-white/5 p-4">
+            <input type="text" id="mobileSearchInput" placeholder="Search products..." 
+                   class="w-full bg-white/5 text-white rounded-xl px-4 py-2.5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500/50 placeholder-gray-500">
+        </div>
+    </nav>
+
+    <!-- ═══ Hero Section ═══ -->
+    <header class="relative overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80" 
+                 class="w-full h-full object-cover" alt="Workshop">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-dark-900/95 to-dark-900/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 right-20 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-48 h-48 bg-amber-600/5 rounded-full blur-2xl"></div>
+        
+        <div class="max-w-7xl mx-auto py-24 md:py-32 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span class="text-amber-400 text-sm font-medium">Trusted by 10,000+ Professionals</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-white">
+                    Equip Your Shop with
+                    <span class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent"> Pro-Grade Tools</span>
+                </h1>
+                
+                <p class="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed">
+                    From heavy-duty welding machines to precision cutting tools. Get professional iron-working equipment you can rely on, delivered across India.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="scrollToProducts()" 
+                            class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-dark-900 font-bold py-3.5 px-8 rounded-xl shadow-lg shadow-amber-500/25 transition-all duration-300 hover:shadow-amber-500/40 hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> Shop Now
+                    </button>
+                    <button onclick="filterProducts('welding'); scrollToProducts()" 
+                            class="bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 font-semibold py-3.5 px-8 rounded-xl transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-fire-flame-curved text-amber-500"></i> View Welders
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══ Trust/Features Bar ═══ -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10 mb-16">
+        <div class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Free Delivery</h3>
+                <p>On orders above ₹2,000</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-check"></i></div>
+                <h3>1 Year Warranty</h3>
+                <p>Guaranteed quality tools</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-rotate-left"></i></div>
+                <h3>Easy Returns</h3>
+                <p>30-day return policy</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>24/7 Support</h3>
+                <p>Dedicated help anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Main Content ═══ -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Our Products</h2>
+            <p class="text-gray-500 max-w-lg mx-auto">Professional-grade equipment built to last. Browse our curated collection.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button onclick="filterProducts('all')" class="filter-btn active-filter bg-gradient-to-r from-amber-500 to-amber-600 text-dark-900 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300" data-category="all">
+                All Products
+            </button>
+            <button onclick="filterProducts('welding')" class="filter-btn bg-white/5 text-gray-400 border border-white/10 px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 hover:border-amber-500/30 hover:text-amber-400" data-category="welding">
+                <i class="fa-solid fa-fire-flame-curved mr-1"></i> Welding
+            </button>
+            <button onclick="filterProducts('power-tools')" class="filter-btn bg-white/5 text-gray-400 border border-white/10 px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 hover:border-amber-500/30 hover:text-amber-400" data-category="power-tools">
+                <i class="fa-solid fa-gear mr-1"></i> Power Tools
+            </button>
+            <button onclick="filterProducts('cutting')" class="filter-btn bg-white/5 text-gray-400 border border-white/10 px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 hover:border-amber-500/30 hover:text-amber-400" data-category="cutting">
+                <i class="fa-solid fa-scissors mr-1"></i> Cutting
+            </button>
+            <button onclick="filterProducts('safety')" class="filter-btn bg-white/5 text-gray-400 border border-white/10 px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 hover:border-amber-500/30 hover:text-amber-400" data-category="safety">
+                <i class="fa-solid fa-hard-hat mr-1"></i> Safety
+            </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Products injected by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-24">
+            <i class="fa-solid fa-box-open text-6xl text-gray-700 mb-6"></i>
+            <p class="text-xl text-gray-500 font-medium">No products found.</p>
+            <p class="text-gray-600 mt-2">Try adjusting your search or filter.</p>
+        </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="bg-dark-800 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center">
+                            <i class="fa-solid fa-hammer text-dark-900 text-xs"></i>
+                        </div>
+                        <span class="font-bold text-lg text-white">Toolify</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Empowering Indian professionals with top-tier welding & iron working equipment since 2024.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Shop</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" onclick="filterProducts('welding');scrollToProducts()" class="text-gray-500 hover:text-amber-400 transition-colors">Welding Machines</a></li>
+                        <li><a href="#" onclick="filterProducts('power-tools');scrollToProducts()" class="text-gray-500 hover:text-amber-400 transition-colors">Power Tools</a></li>
+                        <li><a href="#" onclick="filterProducts('cutting');scrollToProducts()" class="text-gray-500 hover:text-amber-400 transition-colors">Cutting Equipment</a></li>
+                        <li><a href="#" onclick="filterProducts('safety');scrollToProducts()" class="text-gray-500 hover:text-amber-400 transition-colors">Safety Gear</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Support</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-500 hover:text-amber-400 transition-colors">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-amber-400 transition-colors">Returns & Warranty</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-amber-400 transition-colors">Contact Us</a></li>
+                        <li><a href="../admin/login.php" class="text-gray-500 hover:text-amber-400 transition-colors">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Connect</h3>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-amber-500/15 hover:border-amber-500/30 hover:text-amber-400 transition-all text-gray-500">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-amber-500/15 hover:border-amber-500/30 hover:text-amber-400 transition-all text-gray-500">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-amber-500/15 hover:border-amber-500/30 hover:text-amber-400 transition-all text-gray-500">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-amber-500/15 hover:border-amber-500/30 hover:text-amber-400 transition-all text-gray-500">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 text-xs mt-6">Call us: +91 98765 43210</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-14 pt-8 border-t border-white/5 text-gray-600 text-sm">
+                &copy; 2026 Toolify. All rights reserved. Built with <i class="fa-solid fa-heart text-amber-500 text-xs"></i> in India.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ Cart Overlay ═══ -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity" onclick="toggleCart()"></div>
+
+    <!-- ═══ Cart Sidebar ═══ -->
+    <div id="cartSidebar" class="fixed inset-y-0 right-0 max-w-sm w-full bg-dark-800 border-l border-white/5 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-5 border-b border-white/5 flex justify-between items-center">
+            <h2 class="text-lg font-bold flex items-center gap-2.5 text-white">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center">
+                    <i class="fa-solid fa-bag-shopping text-amber-500 text-sm"></i>
+                </div>
+                Your Cart
+            </h2>
+            <button onclick="toggleCart()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all">
+                <i class="fa-solid fa-times text-sm"></i>
+            </button>
+        </div>
+        
+        <div id="cartItems" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <div id="emptyCartMessage" class="h-full flex flex-col items-center justify-center text-gray-600">
+                <div class="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-cart-arrow-down text-3xl opacity-30"></i>
+                </div>
+                <p class="font-medium text-gray-500">Your cart is empty</p>
+                <button onclick="toggleCart()" class="mt-4 text-amber-500 font-semibold text-sm hover:underline">Start Shopping →</button>
+            </div>
+        </div>
+
+        <div class="p-6 bg-dark-900/50 border-t border-white/5">
+            <div class="flex justify-between items-center mb-5">
+                <span class="text-gray-400 font-medium">Total</span>
+                <span id="cartTotal" class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">₹0</span>
+            </div>
+            <button onclick="openCheckoutModal()" id="checkoutBtn" 
+                    class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-dark-900 font-bold py-3.5 rounded-xl shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-amber-500/40 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:hover:from-amber-500 disabled:hover:to-amber-600" 
+                    disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ Checkout Modal ═══ -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="flex items-center justify-between mb-2">
+                <h2><i class="fa-solid fa-lock text-amber-500 mr-2"></i>Checkout</h2>
+                <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-gray-500 hover:text-red-400 transition">
+                    <i class="fa-solid fa-times text-sm"></i>
+                </button>
+            </div>
+            <p class="modal-subtitle">Enter your details to complete the order</p>
+            
+            <form id="checkoutForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="customerName"><i class="fa-solid fa-user mr-1 text-amber-500/60"></i> Full Name *</label>
+                    <input type="text" id="customerName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone"><i class="fa-solid fa-phone mr-1 text-amber-500/60"></i> Phone Number *</label>
+                    <input type="tel" id="customerPhone" placeholder="e.g., 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress"><i class="fa-solid fa-location-dot mr-1 text-amber-500/60"></i> Delivery Address *</label>
+                    <textarea id="customerAddress" placeholder="Full delivery address with PIN code" required></textarea>
+                </div>
+                
+                <div class="bg-white/5 rounded-xl p-4 mb-4 border border-white/5">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Order Total</span>
+                        <span id="modalTotal" class="text-lg font-bold text-amber-500">₹0</span>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" onclick="closeCheckoutModal()" class="btn-checkout-cancel">Cancel</button>
+                    <button type="submit" id="submitOrderBtn" class="btn-checkout-submit">
+                        <i class="fa-solid fa-bag-shopping mr-1"></i> Place Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══ Toast Container ═══ -->
+    <div id="toast-container"></div>
+
+    <!-- ═══ JavaScript ═══ -->
+    <script>
+        let cart = [];
+        let currentUser = null;
+        
+        // ─── Init ───────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthStatus();
+            loadProducts();
+            setupSearch();
+        });
+        const staticProducts = [
+            { id: 1, name: "ProArc 200 Welding Machine", category: "welding", price: 18999, imgUrl: "https://images.unsplash.com/photo-1563292770-b88308436440?auto=format&fit=crop&w=500&q=60", desc: "Heavy-duty inverter welder for professional use." },
+            { id: 9, name: "Impact Drill Machine 13mm", category: "power-tools", price: 4250, imgUrl: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=500&q=60", desc: "Variable speed reversible impact drill for concrete and steel." },
+            { id: 2, name: "Titan Angle Grinder 900W", category: "power-tools", price: 3499, imgUrl: "https://images.unsplash.com/photo-1588619461337-f83134372990?auto=format&fit=crop&w=500&q=60", desc: "High-speed grinder for cutting and polishing metal." },
+            { id: 3, name: "Auto-Darkening Helmet", category: "safety", price: 1499, imgUrl: "https://images.unsplash.com/photo-1542352819-21782233f81e?auto=format&fit=crop&w=500&q=60", desc: "Solar-powered helmet with adjustable sensitivity." },
+            { id: 4, name: "Diamond Cutting Discs (10pk)", category: "cutting", price: 499, imgUrl: "https://images.unsplash.com/photo-1622646279864-77ce540c4974?auto=format&fit=crop&w=500&q=60", desc: "Durable blades for cutting stainless steel and iron." },
+            { id: 5, name: "Forged Steel Hammer", category: "power-tools", price: 650, imgUrl: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=500&q=60", desc: "Ergonomic grip with shock reduction technology." },
+            { id: 6, name: "Leather Welding Gloves", category: "safety", price: 450, imgUrl: "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=500&q=60", desc: "Heat resistant gauntlets for heavy welding." },
+            { id: 7, name: "Adjustable Wrench Set", category: "power-tools", price: 1800, imgUrl: "https://images.unsplash.com/photo-1533090161767-32687720681f?auto=format&fit=crop&w=500&q=60", desc: "Chrome vanadium steel wrenches, sizes 6-12 inch." },
+            { id: 8, name: "Welding Electrodes E6013", category: "welding", price: 850, imgUrl: "https://images.unsplash.com/photo-1581093583449-ed25213444e4?auto=format&fit=crop&w=500&q=60", desc: "General purpose rods (2.5mm) for mild steel welding." },
+            { id: 10, name: "Circular Saw 1200W", category: "power-tools", price: 6800, imgUrl: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=500&q=60", desc: "Precision cutting for wood and soft metals." }
+        ];
+
+        // ─── Init ───────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            setupSearch();
+        });
+
+        // ─── Fetch Products ─────────────────────────────────
+        async function loadProducts() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/get_products.php');
+                if (!response.ok) throw new Error("Backend not reachable");
+                products = await response.json();
+                console.log("✓ Products loaded from database");
+            } catch (error) {
+                console.warn("PHP Backend not found — using static demo data.");
+                products = staticProducts;
+            }
+            renderProducts(products);
+        }
+
+        // ─── Render Products ────────────────────────────────
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            items.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card animate-fade-in-up';
+                card.style.animationDelay = `${index * 0.05}s`;
+                card.style.opacity = '0';
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative bg-dark-700/50 group">
+                        <img src="${product.imgUrl}" 
+                             alt="${product.name}" 
+                             class="product-image w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/400x300/1e293b/f59e0b?text=Tool+Image'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/40 to-transparent"></div>
+                        <button onclick="addToCart(${product.id})" 
+                                class="absolute bottom-3 right-3 bg-dark-800/80 backdrop-blur-sm text-amber-400 p-3 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 hover:bg-amber-500 hover:text-dark-900 hover:border-amber-500 z-10">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </button>
+                        <div class="absolute top-3 left-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-dark-800/70 backdrop-blur-sm text-amber-400 px-2.5 py-1 rounded-lg border border-white/5">${product.category.replace('-', ' ')}</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-base font-bold text-white mb-2 leading-snug">${product.name}</h3>
+                        <p class="text-sm text-gray-500 mb-4 flex-1 line-clamp-2">${product.desc}</p>
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
+                            <span class="text-xl font-extrabold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">₹${product.price.toLocaleString('en-IN')}</span>
+                            <button onclick="addToCart(${product.id})" class="text-xs font-semibold text-gray-500 hover:text-amber-400 transition-colors flex items-center gap-1.5 group/btn">
+                                <i class="fa-solid fa-cart-plus group-hover/btn:scale-110 transition-transform"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ─── Render Cart ────────────────────────────────────
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            const emptyMsg = document.getElementById('emptyCartMessage');
+            const totalEl = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const countBadge = document.getElementById('cartCount');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalItems;
+            countBadge.classList.toggle('scale-0', totalItems === 0);
+
+            if (cart.length === 0) {
+                container.innerHTML = '';
+                container.appendChild(emptyMsg);
+                emptyMsg.style.display = 'flex';
+                checkoutBtn.disabled = true;
+                totalEl.innerText = "₹0";
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (!product) return;
+                total += product.price * item.qty;
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'flex gap-4 bg-white/5 p-3 rounded-xl border border-white/5';
+                itemEl.innerHTML = `
+                    <div class="w-16 h-16 bg-dark-700 rounded-lg flex-shrink-0 overflow-hidden">
+                        <img src="${product.imgUrl}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/64x64/1e293b/f59e0b?text=N/A'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-semibold text-sm text-white truncate">${product.name}</h4>
+                        <p class="text-amber-500 font-bold text-sm mt-0.5">₹${product.price.toLocaleString('en-IN')}</p>
+                        <div class="flex items-center gap-3 mt-2">
+                            <button onclick="updateQty(${item.id}, -1)" class="w-6 h-6 rounded-md bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition text-xs">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <span class="text-sm font-medium w-4 text-center text-white">${item.qty}</span>
+                            <button onclick="updateQty(${item.id}, 1)" class="w-6 h-6 rounded-md bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition text-xs">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-600 hover:text-red-400 self-start transition p-1">
+                        <i class="fa-solid fa-trash-can text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(itemEl);
+            });
+
+            totalEl.innerText = `₹${total.toLocaleString('en-IN')}`;
+            checkoutBtn.disabled = false;
+        }
+
+        // ─── Cart Actions ───────────────────────────────────
+        function addToCart(id) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ id, qty: 1 });
+            }
+            renderCart();
+            showToast("Item added to cart!");
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            renderCart();
+        }
+
+        function updateQty(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    removeFromCart(id);
+                } else {
+                    renderCart();
+                }
+            }
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            const isOpen = !sidebar.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // ─── Checkout Modal ─────────────────────────────────
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            document.getElementById('modalTotal').innerText = document.getElementById('cartTotal').innerText;
+            document.getElementById('checkoutModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            if (document.getElementById('cartSidebar').classList.contains('translate-x-full')) {
+                document.body.style.overflow = '';
+            }
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitOrderBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Processing...';
+
+            const orderData = {
+                cart: cart,
+                customerName: document.getElementById('customerName').value.trim(),
+                customerPhone: document.getElementById('customerPhone').value.trim(),
+                customerAddress: document.getElementById('customerAddress').value.trim(),
+                userId: currentUser ? currentUser.id : null
+            };
+
+            try {
+                const response = await fetch('place_order.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        showToast(`Order placed! ID: #${result.orderId}`);
+                        cart = [];
+                        renderCart();
+                        closeCheckoutModal();
+                        toggleCart();
+                        document.getElementById('checkoutForm').reset();
+                    } else {
+                        showToast(result.message || "Error placing order", "error");
+                    }
+                } else {
+                    throw new Error("Backend error");
+                }
+            } catch (error) {
+                console.warn("Demo mode checkout");
+                setTimeout(() => {
+                    showToast("Order placed via Demo Mode!");
+                    cart = [];
+                    renderCart();
+                    closeCheckoutModal();
+                    toggleCart();
+                    document.getElementById('checkoutForm').reset();
+                }, 800);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // ─── Auth Logic ─────────────────────────────────────
+        function openAuthModal(mode = 'login') {
+            toggleAuthMode(mode);
+            document.getElementById('authModal').classList.remove('scale-0');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('scale-0');
+            document.body.style.overflow = '';
+        }
+
+        function toggleAuthMode(mode) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const title = document.getElementById('authTitle');
+            
+            if (mode === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+                title.innerText = 'Login';
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                title.innerText = 'Create Account';
+            }
+        }
+
+        async function handleAuth(event, type) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+
+            try {
+                const url = `auth_api.php?action=${type}`;
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast(result.message);
+                    currentUser = result.data.user;
+                    updateUserUI();
+                    closeAuthModal();
+                    form.reset();
+                } else {
+                    showToast(result.message, "error");
+                }
+            } catch (error) {
+                showToast("Connection error. Try again later.", "error");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch('auth_api.php?action=status');
+                const result = await response.json();
+                if (result.success && result.data.loggedIn) {
+                    currentUser = result.data.user;
+                    updateUserUI();
+                }
+            } catch (e) {}
+        }
+
+        function updateUserUI() {
+            const area = document.getElementById('userProfileArea');
+            if (currentUser) {
+                area.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm font-medium text-amber-500">Hi, ${currentUser.username}</span>
+                        <button onclick="logout()" class="text-xs text-gray-500 hover:text-white transition-colors">
+                            Logout
+                        </button>
+                    </div>
+                `;
+                // Fill checkout info if empty
+                document.getElementById('customerName').value = currentUser.username;
+            } else {
+                area.innerHTML = `
+                    <button onclick="openAuthModal('login')" class="flex items-center gap-2 text-sm text-gray-400 hover:text-amber-400 transition-colors">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Login</span>
+                    </button>
+                `;
+            }
+        }
+
+        async function logout() {
+            try {
+                await fetch('auth_api.php?action=logout');
+                currentUser = null;
+                updateUserUI();
+                showToast("Logged out successfully");
+            } catch (e) {}
+        }
+
+        // ─── Filters ────────────────────────────────────────
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const isActive = btn.dataset.category === category;
+                btn.classList.toggle('active-filter', isActive);
+                if (isActive) {
+                    btn.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
+                } else {
+                    btn.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+                    btn.classList.remove('bg-gradient-to-r', 'from-amber-500', 'to-amber-600', 'text-dark-900');
+                }
+            });
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => 
+                    p.category === category || 
+                    (category === 'power-tools' && p.category === 'tools')
+                );
+                renderProducts(filtered);
+            }
+        }
+
+        // ─── Search ─────────────────────────────────────────
+        function setupSearch() {
+            const handleSearch = (e) => {
+                const term = e.target.value.toLowerCase();
+                const filtered = products.filter(p =>
+                    p.name.toLowerCase().includes(term) ||
+                    p.desc.toLowerCase().includes(term) ||
+                    p.category.toLowerCase().includes(term)
+                );
+                renderProducts(filtered);
+                // Reset filter button states
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active-filter');
+                    btn.classList.add('bg-white/5', 'text-gray-400');
+                });
+            };
+
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
+            document.getElementById('mobileSearchInput').addEventListener('input', handleSearch);
+        }
+
+        function scrollToProducts() {
+            document.getElementById('productGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // ─── Toast Notifications ────────────────────────────
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const icon = type === "success" ? "fa-circle-check text-green-400" : "fa-circle-exclamation text-red-400";
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fa-solid ${icon}"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            
+            requestAnimationFrame(() => toast.classList.add('show'));
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // ─── Navbar Scroll Effect ───────────────────────────
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                navbar.classList.add('shadow-lg', 'shadow-black/20');
+            } else {
+                navbar.classList.remove('shadow-lg', 'shadow-black/20');
+            }
+            lastScroll = scrollY;
+        });
+    </script>
+</body>
+</html>
